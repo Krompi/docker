@@ -9,8 +9,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=de_DE.UTF-8 \
     TERM=xterm \
     TZ=Europe/Berlin
-ENV http_proxy http://10.167.16.21:80
-ENV https_proxy http://10.167.16.21:80
+#ENV http_proxy http://10.167.16.21:80
+#ENV https_proxy http://10.167.16.21:80
 
 #
 # APT packages
