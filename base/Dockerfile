@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     openssl \
     ssl-cert \
     wget \
-    vim
+    vim \
+    subversion
 
 RUN rm -rf /var/lib/apt/lists/*
 
