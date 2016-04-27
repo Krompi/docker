@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     openssl \
     ssl-cert \
     wget \
-    vi
+    vim
 
 RUN rm -rf /var/lib/apt/lists/*
 
