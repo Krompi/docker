@@ -1,0 +1,32 @@
+version: '2'
+#volumes:
+#    postgresdata: {}
+#    www: {}
+services:
+    app:
+        image: local-base
+        volumes:
+            #- /home/krompi/Docker/Krompi/compose/www:/var/www/html
+            - ./www:/var/www/html
+    php:
+        image: local-php
+        ports:
+            - "4000:4000"
+            - "8000:8000"
+            - "9000:9000"
+        volumes_from:
+            - app
+    apache:
+        image: local-apache
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes_from:
+            - app
+    postgres:
+        image: local-postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            #- /home/krompi/Docker/Krompi/compose/postgresdata:/var/lib/postgresql
+            - ./postgresdata:/var/lib/postgresql

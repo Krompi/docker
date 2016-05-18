@@ -1,6 +1,14 @@
 FROM ubuntu:16.04
-
 MAINTAINER Krompi
+
+#
+# Set environment variables
+#
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=de_DE.UTF-8 \
+    TERM=xterm \
+    TZ=Europe/Berlin
+
 #
 # APT packages
 #
@@ -12,9 +20,8 @@ RUN apt-get update && apt-get install -y \
     nano \
     openssl \
     ssl-cert \
-    wget \
     vim \
-    subversion
+    wget
 
 RUN rm -rf /var/lib/apt/lists/*
 
