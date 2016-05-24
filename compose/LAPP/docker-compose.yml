@@ -7,7 +7,7 @@ services:
         image: local-base
         volumes:
             #- /home/krompi/Docker/Krompi/compose/www:/var/www/html
-            - ./www:/var/www/html
+            - /srv/docker/www:/var/www/html
     php:
         image: local-php
         ports:
@@ -29,4 +29,4 @@ services:
             - "5432:5432"
         volumes:
             #- /home/krompi/Docker/Krompi/compose/postgresdata:/var/lib/postgresql
-            - ./postgresdata:/var/lib/postgresql
+            - /srv/docker/postgresdata:/var/lib/postgresql
