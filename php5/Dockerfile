@@ -1,4 +1,4 @@
-FROM krompi/ase
+FROM krompi/base
 MAINTAINER Krompi
 
 #
