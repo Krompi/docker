@@ -1,0 +1,50 @@
+version: '2'
+services:
+    app:
+        image: krompi/base
+        volumes:
+            - /srv/sti/www:/srv
+    php:
+        image: krompi/php
+        container_name: container-local-php
+        links:
+          - mysql:db_mysql
+          - postgres:db_postgres
+        ports:
+            - "4000:4000"
+            - "8000:8000"
+            - "9000:9000"
+        volumes_from:
+            - app
+    apache:
+        image: krompi/apache
+        container_name: container-local-apache
+        links:
+          - php
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes_from:
+            - app
+        volumes:
+            - ../apache-own-default.conf:/etc/apache2/sites-enabled/own-default.conf
+    postgres:
+        image: krompi/postgres
+        container_name: container-local-postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - /srv/sti/postgresdata:/var/lib/postgresql
+    mysql:
+        image: mysql:latest
+        container_name: container-local-mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=test
+            - MYSQL_USER=sti
+            - MYSQL_PASSWORD=test
+            - MYSQL_DATABASE=sti
+        ports:
+            - "3306:3306"
+        volumes:
+            - /srv/sti/mysql:/var/lib/mysql
+            - ../mysql-own.cnf:/etc/mysql/conf.d/mysql-own.cnf
