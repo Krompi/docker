@@ -1,4 +1,4 @@
-FROM local-base
+FROM krompi/base
 MAINTAINER Krompi
 
 #

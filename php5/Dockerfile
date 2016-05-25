@@ -1,4 +1,4 @@
-FROM local-base
+FROM krompi/ase
 MAINTAINER Krompi
 
 #
@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
     php5.6-imap \
     php5.6-intl \
     php5.6-json \
+    php5.6-ldap \
     php5.6-mbstring \
     php5.6-mcrypt \
     php5.6-mysql \

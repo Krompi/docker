@@ -1,6 +1,6 @@
-# akilli/apache
+# krompi/apache
 
-`akilli/base` based Apache HTTP Server image
+`krompi/base` based Apache HTTP Server image
 
 ## Usage
 
@@ -9,11 +9,11 @@ In your `docker-compose.yml` include something like
     version: '2'
     services:
         app:
-            image: akilli/base
+            image: krompi/base
             volumes:
                 - .:/var/www/html
         php:
-            image: akilli/php
+            image: krompi/php
             ports:
                 - "4000:4000"
                 - "8000:8000"
@@ -21,7 +21,7 @@ In your `docker-compose.yml` include something like
             volumes_from:
                 - app
         apache:
-            image: akilli/apache
+            image: krompi/apache
             ports:
                 - "80:80"
                 - "443:443"
