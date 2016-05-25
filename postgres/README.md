@@ -1,6 +1,6 @@
-# akilli/postgres
+# krompi/postgres
 
-`akilli/base` based PostgreSQL image
+`krompi/base` based PostgreSQL image
 
 ## Usage
 
@@ -9,7 +9,7 @@ In your `docker-compose.yml` include something like
     version: '2'
     services:
         postgres:
-            image: akilli/postgres
+            image: krompi/postgres
             ports:
                 - "5432:5432"
 
@@ -20,7 +20,7 @@ or with a separate data volume
         postgresdata: {}
     services:
         postgres:
-            image: akilli/postgres
+            image: krompi/postgres
             ports:
                 - "5432:5432"
             volumes:
