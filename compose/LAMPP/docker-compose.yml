@@ -5,8 +5,8 @@ services:
         volumes:
             - /srv/sti/www:/srv
     php:
-        image: krompi/php
-        container_name: container-local-php
+        image: krompi/php5
+        container_name: container-krompi-php
         links:
           - mysql:db_mysql
           - postgres:db_postgres
@@ -18,7 +18,7 @@ services:
             - app
     apache:
         image: krompi/apache
-        container_name: container-local-apache
+        container_name: container-krompi-apache
         links:
           - php
         ports:
@@ -30,14 +30,14 @@ services:
             - ../apache-own-default.conf:/etc/apache2/sites-enabled/own-default.conf
     postgres:
         image: krompi/postgres
-        container_name: container-local-postgres
+        container_name: container-krompi-postgres
         ports:
             - "5432:5432"
         volumes:
             - /srv/sti/postgresdata:/var/lib/postgresql
     mysql:
         image: mysql:latest
-        container_name: container-local-mysql
+        container_name: container-krompi-mysql
         environment:
             - MYSQL_ROOT_PASSWORD=test
             - MYSQL_USER=sti
