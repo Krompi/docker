@@ -7,6 +7,9 @@ services:
     php:
         image: krompi/php5
         container_name: container-krompi-php
+        environment:
+          - HTTP_PROXY="10.167.16.21:80"
+          - HTTPS_PROXY="10.167.16.21:80"
         links:
           - mysql:db_mysql
           - postgres:db_postgres
@@ -48,3 +51,10 @@ services:
         volumes:
             - /srv/sti/mysql:/var/lib/mysql
             - ../mysql-own.cnf:/etc/mysql/conf.d/mysql-own.cnf
+    myadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: container-krompi-myadmin
+        links:
+          - mysql:db
+        ports:
+            - "8080:80"
