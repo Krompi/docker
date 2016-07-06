@@ -1,0 +1,17 @@
+#version: '2'
+#services:
+    web:
+        image: 'gitlab/gitlab-ce:latest'
+    #    restart: always
+        hostname: 'gitlab.krompi.dev'
+        environment:
+            GITLAB_OMNIBUS_CONFIG: |
+                external_url 'http://gitlab.krompi.dev:9090'
+        ports:
+            - '9090:9090'
+    #        - '443:443'
+    #        - '22:22'
+        volumes:
+            - '/srv/gitlab/config:/etc/gitlab'
+            - '/srv/gitlab/logs:/var/log/gitlab'
+            - '/srv/gitlab/data:/var/opt/gitlab'
